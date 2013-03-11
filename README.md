@@ -1,4 +1,4 @@
-bimgo
+BIMGO
 =====
 
-People and Project Management System for BIM Team
+People and Project Management System for BIM Team.
