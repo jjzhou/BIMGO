@@ -2,13 +2,13 @@
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container" style="margin-top: 3px; margin-bottom: 2px;">
-            <div class="span4" style="font-size: 18pt; vertical-align: bottom; margin-bottom: 2px;"><g:img dir="images/logo" file="bimgo_logo.png" style="width: 168px; margin-left: -20px;"/> /ˈbiNGgō/</div>
+            <div class="span4" style="font-size: 18pt; vertical-align: bottom; margin-bottom: 2px;"><g:img dir="images/logo" file="bimgo_logo.png" style="width: 128px; margin-left: -10px; margin-top: 5px;"/> /ˈbiNGgō/</div>
             %{--<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>--}%
-            <div class="nav-collapse collapse span6">
+            <div class="nav-collapse collapse span6 pull-right">
                 <ul class="nav">
                     <li class="active"><a href="#">People</a></li>
                     <li><a href="#">Engagement</a></li>

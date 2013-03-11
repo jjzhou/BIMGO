@@ -7,13 +7,13 @@
  */
 modules = {
     'bootstrap' {
-        resource url: 'js/bootstrap/bootstrap.js'
-        resource url: 'js/bootstrap/bootstrap.min.js'
+        resource url: 'bootstrap/js/bootstrap.js'
+        resource url: 'bootstrap/js/bootstrap.min.js'
 
-        resource url: 'css/bootstrap/bootstrap-responsive.css'
-        resource url: 'css/bootstrap/bootstrap-responsive.min.css'
-        resource url: 'css/bootstrap/bootstrap.css'
-        resource url: 'css/bootstrap/bootstrap.min.css'
+        resource url: 'bootstrap/css/bootstrap-responsive.css'
+        resource url: 'bootstrap/css/bootstrap-responsive.min.css'
+        resource url: 'bootstrap/css/bootstrap.css'
+        resource url: 'bootstrap/css/bootstrap.min.css'
 
         resource url: 'css/commonSection.css'
     }
