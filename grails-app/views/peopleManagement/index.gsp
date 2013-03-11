@@ -26,6 +26,7 @@
         </div>
     </div>
     <g:render template="../layouts/footer"/>
+    <!--Good-->
     <r:layoutResources/>
 </body>
 </html>
