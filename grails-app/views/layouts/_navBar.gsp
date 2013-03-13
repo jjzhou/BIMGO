@@ -2,18 +2,17 @@
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container" style="margin-top: 3px; margin-bottom: 2px;">
-            <div class="span4" style="font-size: 18pt; vertical-align: bottom; margin-bottom: 2px;"><g:img dir="images/logo" file="bimgo_logo.png" style="width: 128px; margin-left: -10px; margin-top: 5px;"/> /ˈbiNGgō/</div>
+            <div class="span4" style="font-size: 18pt; vertical-align: bottom; margin-bottom: 2px;"><g:img dir="images/logo" file="bimgo_logo.png" style="width: 128px; margin-left: -15px; margin-top: 5px;"/> /ˈbiNGgō/</div>
             %{--<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>--}%
-            <div class="nav-collapse collapse span6 pull-right">
+            <div class="nav-collapse collapse span5 pull-right" style="margin-right: -20px;">
                 <ul class="nav">
                     <li class="active"><a href="#">People</a></li>
                     <li><a href="#">Engagement</a></li>
-                    <li><a href="#">UT Status</a></li>
-                    <li><a href="#">Example</a></li>
+                    <li><a href="#">Utility Status</a></li>
                     <li><a href="#">About</a></li>
                     %{--<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>

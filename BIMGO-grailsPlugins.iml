@@ -5,6 +5,7 @@
       <configuration>
         <webroots>
           <root url="file://$USER_HOME$/.grails/2.1.0/projects/BIMGO/plugins/jquery-1.7.2/web-app" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.1.0/projects/BIMGO/plugins/jquery-ui-1.8.15/web-app" relative="/" />
         </webroots>
         <sourceRoots />
       </configuration>
@@ -28,6 +29,10 @@
       <sourceFolder url="file://$USER_HOME$/.grails/2.1.0/projects/BIMGO/plugins/jquery-1.7.2/grails-app/i18n" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.grails/2.1.0/projects/BIMGO/plugins/jquery-1.7.2/grails-app/services" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.grails/2.1.0/projects/BIMGO/plugins/jquery-1.7.2/grails-app/taglib" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.1.0/projects/BIMGO/plugins/jquery-ui-1.8.15">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.1.0/projects/BIMGO/plugins/jquery-ui-1.8.15/grails-app/i18n" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.1.0/projects/BIMGO/plugins/jquery-ui-1.8.15/grails-app/taglib" isTestSource="false" />
     </content>
     <content url="file://$USER_HOME$/.grails/2.1.0/projects/BIMGO/plugins/mongodb-1.1.0.GA" />
     <content url="file://$USER_HOME$/.grails/2.1.0/projects/BIMGO/plugins/resources-1.1.6">
@@ -67,6 +72,9 @@
           <root url="jar://$USER_HOME$/.grails/ivy-cache/org.javassist/javassist/jars/javassist-3.16.1-GA.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/org.grails/grails-datastore-core/jars/grails-datastore-core-1.1.3.RELEASE.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/org.grails/grails-datastore-simple/jars/grails-datastore-simple-1.1.3.RELEASE.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/commons-codec/commons-codec/jars/commons-codec-1.6.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.httpcomponents/httpcore/jars/httpcore-4.2.1.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.httpcomponents/httpclient/jars/httpclient-4.2.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

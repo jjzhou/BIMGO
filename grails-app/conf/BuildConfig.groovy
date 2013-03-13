@@ -33,13 +33,20 @@ grails.project.dependency.resolution = {
     }
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
+        build 'joda-time:joda-time:2.1'
+        build('org.apache.poi:poi:3.8')
+        build('org.apache.poi:poi-ooxml:3.8')
+        build('org.apache.poi:poi-ooxml-schemas:3.8')
+        build('org.apache.commons:commons-compress:1.4.1')
         // runtime 'mysql:mysql-connector-java:5.1.20'
+        compile "org.apache.httpcomponents:httpclient:4.2.1"
     }
 
     plugins {
         runtime ':mongodb:1.1.0.GA'
         //runtime ":hibernate:$grailsVersion"
         runtime ":jquery:1.7.2"
+        runtime ":jquery-ui:1.8.15"
         runtime ":resources:1.1.6"
 
         // Uncomment these (or add new ones) to enable additional resources capabilities
