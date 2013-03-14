@@ -248,10 +248,10 @@
     $(function () {
         $("#deletePeople").click(function () {
             if ($(".rmparam:checked").length < 1) {
-                alert("请选择要删除的行")
+                alert("I'm afraid you should select at least one person.")
                 return
             }
-            if (confirm("确定要删除吗？")) {
+            if (confirm("Sure to DELETE?")) {
                 $("#deleteForm").submit()
             }
         })

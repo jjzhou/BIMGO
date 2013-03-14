@@ -13,6 +13,7 @@ class PeopleManagementController {
     def excelService
 
     def index() {
+
         List<People> peopleList = People.findAll()?.toList()
 
         if (!peopleList || peopleList.size() == 0) {

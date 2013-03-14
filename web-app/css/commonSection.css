@@ -5,7 +5,7 @@ body {
 
 /* Wrapper for page content to push down footer */
 #wrapper {
-    min-height: 100%;
+    min-height: 90%;
     height: auto !important;
     height: 100%;
     /* Negative indent footer by it's height */
