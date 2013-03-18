@@ -65,4 +65,10 @@ modules = {
         resource url: 'js/jqueryui-addon/validation/js/languages/jquery.validationEngine-zh_CN.js'
         resource url: 'js/jqueryui-addon/validation/js/jquery.validationEngine.js'
     }
+
+    'jit' {
+        resource url: 'js/jit/jit.js'
+        resource url: 'js/jit/jit-yc.js'
+        resource url: 'js/jit/Extras/excanvas.js'
+    }
 }

@@ -14,13 +14,26 @@ class PeopleManagementController {
 
     def index() {
 
+        /*List<People> peopleList = People.findAll()?.toList()
+
+        if (!peopleList || peopleList.size() == 0) {
+            peopleList = new ArrayList()
+        }*/
+
+        //TODO Prepare a JSON for data visualization
+
+        render view: "index"
+    }
+
+    def truth() {
+
         List<People> peopleList = People.findAll()?.toList()
 
         if (!peopleList || peopleList.size() == 0) {
             peopleList = new ArrayList()
         }
 
-        render view: "index", model: [peopleList: peopleList]
+        render view: "truth", model: [peopleList: peopleList]
     }
 
     def add() {

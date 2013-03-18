@@ -1,10 +1,11 @@
 html, body {
     margin:0;
     padding:0;
-    font-family: "Lucida Grande", Verdana;
-    font-size: 0.9em;
+    /*font-family: "Lucida Grande", Verdana;*/
+    /*font-size: 0.9em;*/
     text-align: center;
-    background-color:#F2F2F2;
+    vertical-align: middle;
+    /*background-color:#F2F2F2;*/
 }
 
 input, select {

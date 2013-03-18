@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: jjzhou
-  Date: 13-3-18
-  Time: 上午11:28
+  Date: 13-3-8
+  Time: 下午2:43
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
@@ -11,23 +11,17 @@
     <title>People Management</title>
     <r:require modules="bimgo-layout, bootstrap, jquery-ui-addon-file-upload, jit"/>
     <r:layoutResources/>
-
-    <!-- Example JS File -->
-    <script language="javascript" type="text/javascript" src="../js/jit/Examples/Treemap/example1.js"></script>
-    <!-- CSS Files -->
-    <link type="text/css" href="../js/jit/Examples/css/base.css" rel="stylesheet"/>
-    <link type="text/css" href="../js/jit/Examples/css/Treemap.css" rel="stylesheet"/>
 </head>
 
-<body onload="init();">
+<body>
 <div id="wrapper">
     <g:render template="../layouts/navBar"/>
     <div class="container">
-        <div class="row" style="margin-left: 0px; margin-bottom: -10px; text-align: left;">
-            <legend>People Management <small>The Big Picture</small></legend>
+        <div class="row" style="margin-left: 0px; margin-bottom: -10px;">
+            <legend>People Management <small>The Ugly List</small></legend>
         </div>
 
-    <!-- Alert Message -->
+        <!-- Alert Message -->
         <g:if test="${flash.message}">
             <div class="alert alert-info">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -35,51 +29,62 @@
             </div>
         </g:if>
 
-        <div class="row" style="margin-left: 0px; margin-top: 5px; text-align: left;">
+        <div class="row" style="margin-left: 0px; margin-top: 5px;">
             <div class="span4 form-inline" style="margin-left: 0px;">
-                <a id="deletePeople" href="javascript:void(0);" class="btn btn-danger"><i
-                        class="icon-minus icon-white"></i> Delete Selected</a>
+                <a id="deletePeople" href="javascript:void(0);" class="btn btn-danger"><i class="icon-minus icon-white"></i> Delete Selected</a>
                 <button id="addPeople" class="btn btn-success" onclick="addPeople();"><i
                         class="icon-plus icon-white"></i> Add People</button>
             </div>
 
-            <div class="span7" style="margin-left: -50px; text-align: left;"><g:fileUpload maxSize="10000000"
-                                                                                           autoUpload="false"
-                                                                                           completed="processUploadFile"
-                                                                                           fileType="xlsx"/></div>
+            <div class="span7" style="margin-left: -50px;"><g:fileUpload maxSize="10000000" autoUpload="false"
+                                                                         completed="processUploadFile"
+                                                                         fileType="xlsx"/></div>
         </div>
 
-        <div class="row" style="margin-left: 0px; margin-top: 0px;">
-            <div id="id-list" style="margin-left: 0px; margin-top: 0px; width: 930px;">
-                <table>
-                    <tr>
-                        <td>
-                            <label for="r-sq">Squarified</label>
-                        </td>
-                        <td style="width: 60px; vertical-align: top; text-align: left;">
-                            <input type="radio" id="r-sq" name="layout" checked="checked" value="left"/>
-                        </td>
-                        <td>
-                            <label for="r-st">Strip</label>
-                        </td>
-                        <td style="width: 60px; vertical-align: top; text-align: left;">
-                            <input type="radio" id="r-st" name="layout" value="top"/>
-                        </td>
-                        <td>
-                            <label for="r-sd">SliceAndDice</label>
-                        </td>
-                        <td style="width: 60px; vertical-align: top; text-align: left;">
-                            <input type="radio" id="r-sd" name="layout" value="bottom"/>
-                        </td>
-                        <td style="width: 555px; vertical-align: top; text-align: right;">
-                            <g:link action="truth" class="btn btn-info pull-right">Show Me The Truth</g:link>
-                        </td>
+        <g:form name="deleteForm" action="delete" method="post" style="margin: 0;padding:0;">
+            <div class="row" style="margin-left: 0px;">
+                <table class="table table-bordered table-list" style=" margin-top: 0px;">
+                    <thead>
+                    <tr class="table-middle table-center" style="background-color:#f5f5f5;">
+                        <th></th>
+                        <th style="text-align:center;">Code</th>
+                        <th style="text-align:center;">Name(EN)</th>
+                        %{--<th style="text-align:center;">Name(CN)</th>
+                        <th style="text-align:center;">Gender</th>
+                        <th style="text-align:center;">Position</th>
+                        <th style="text-align:center;">Service Line</th>
+                        <th style="text-align:center;">Sub-Team</th>--}%
+                        <th style="text-align:center;">Sub-Solution</th>
+                        <th style="text-align:center;">Grade</th>
+                        <th style="text-align:center;">Base Location</th>
+                        %{--<th style="text-align:center;">Telephone</th>--}%
+                        <th style="text-align:center;">Mobile</th>
+                        <th style="text-align:center;">Email</th>
                     </tr>
+                    </thead>
+                    <tbody>
+                    <g:each in="${peopleList}" status="i" var="people">
+                        <tr>
+                            <td><input type="checkbox" name="objIds" value="${people.id}" class="rmparam"></td>
+                            <td>${people?.employeeCode}</td>
+                            <td>${people?.nameEn}</td>
+                            %{--<td>${people?.nameCn}</td>
+                            <td>${people?.gender}</td>
+                            <td>${people?.position}</td>
+                            <td>${people?.serviceLine}</td>
+                            <td>${people?.subTeam}</td>--}%
+                            <td>${people?.subSolution}</td>
+                            <td>${people?.grade}</td>
+                            <td>${people?.baseLocation}</td>
+                            %{--<td>${people?.telephone}</td>--}%
+                            <td>${people?.mobile}</td>
+                            <td>${people?.email}</td>
+                        </tr>
+                    </g:each>
+                    </tbody>
                 </table>
             </div>
-        </div>
-
-        <div id="infovis" style="width:945px; margin-top: 10px; margin-bottom: 10px;"></div>
+        </g:form>
     </div>
 </div><!-- wrapper -->
 
@@ -240,17 +245,17 @@
         window.location.href = "${createLink(controller: 'peopleManagement',action: 'processUpload')}";
     }
 
-    /*$(function () {
-     $("#deletePeople").click(function () {
-     if ($(".rmparam:checked").length < 1) {
-     alert("I'm afraid you should select at least one person.")
-     return
-     }
-     if (confirm("Sure to DELETE?")) {
-     $("#deleteForm").submit()
-     }
-     })
-     })*/
+    $(function () {
+        $("#deletePeople").click(function () {
+            if ($(".rmparam:checked").length < 1) {
+                alert("I'm afraid you should select at least one person.")
+                return
+            }
+            if (confirm("Sure to DELETE?")) {
+                $("#deleteForm").submit()
+            }
+        })
+    })
 </script>
 
 </body>
