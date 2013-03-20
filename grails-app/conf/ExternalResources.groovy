@@ -71,4 +71,14 @@ modules = {
         resource url: 'js/jit/jit-yc.js'
         resource url: 'js/jit/Extras/excanvas.js'
     }
+
+    'zTree' {
+        dependsOn 'jquery'
+        resource url:'js/zTree/css/zTreeStyle.css', disposition: 'head'
+        resource url:'js/zTree/jquery.ztree.all-3.3.min.js', disposition: 'head'
+    }
+
+    'json2' {
+        resource url:'js/json2/json2.js', disposition: 'head'
+    }
 }

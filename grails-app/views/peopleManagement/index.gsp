@@ -14,6 +14,7 @@
 
     <!-- Example JS File -->
     <script language="javascript" type="text/javascript" src="../js/jit/Examples/Treemap/example1.js"></script>
+
     <!-- CSS Files -->
     <link type="text/css" href="../js/jit/Examples/css/base.css" rel="stylesheet"/>
     <link type="text/css" href="../js/jit/Examples/css/Treemap.css" rel="stylesheet"/>
@@ -27,7 +28,7 @@
             <legend>People Management <small>The Big Picture</small></legend>
         </div>
 
-    <!-- Alert Message -->
+        <!-- Alert Message -->
         <g:if test="${flash.message}">
             <div class="alert alert-info">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -36,7 +37,7 @@
         </g:if>
 
         <div class="row" style="margin-left: 0px; margin-top: 5px; text-align: left;">
-            <div class="span4 form-inline" style="margin-left: 0px;">
+            %{--<div class="span4 form-inline" style="margin-left: 0px;">
                 <a id="deletePeople" href="javascript:void(0);" class="btn btn-danger"><i
                         class="icon-minus icon-white"></i> Delete Selected</a>
                 <button id="addPeople" class="btn btn-success" onclick="addPeople();"><i
@@ -46,7 +47,7 @@
             <div class="span7" style="margin-left: -50px; text-align: left;"><g:fileUpload maxSize="10000000"
                                                                                            autoUpload="false"
                                                                                            completed="processUploadFile"
-                                                                                           fileType="xlsx"/></div>
+                                                                                           fileType="xlsx"/></div>--}%
         </div>
 
         <div class="row" style="margin-left: 0px; margin-top: 0px;">
@@ -72,16 +73,18 @@
                             <input type="radio" id="r-sd" name="layout" value="bottom"/>
                         </td>
                         <td style="width: 555px; vertical-align: top; text-align: right;">
-                            <g:link action="truth" class="btn btn-info pull-right">Show Me The Truth</g:link>
+                            <g:link action="truth" class="btn btn-basic pull-right">Show Me The TRUTH</g:link>
+                            <g:link action="edit" class="btn btn-primary pull-right" style="margin-right: 10px;">Edit</g:link>
                         </td>
                     </tr>
                 </table>
             </div>
         </div>
 
-        <div id="infovis" style="width:945px; margin-top: 10px; margin-bottom: 10px;"></div>
+        <div id="infovis" style="width:945px; margin-top: 10px; margin-bottom: 10px; border: 1px;"></div>
     </div>
 </div><!-- wrapper -->
+<g:render template="../layouts/footer"/>
 
 <!-- Modal -->
 <div id="addPeopleModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -227,20 +230,19 @@
     </div>
 </div>
 
-<g:render template="../layouts/footer"/>
-<r:layoutResources/>
 
+<r:layoutResources/>
 <script type="text/javascript">
+    function processUploadFile() {
+        window.location.href = "${createLink(controller: 'peopleManagement',action: 'processUpload')}";
+    }
+
     function addPeople() {
         $("#addPeopleModal").modal('show');
         return false
     }
 
-    function processUploadFile() {
-        window.location.href = "${createLink(controller: 'peopleManagement',action: 'processUpload')}";
-    }
-
-    /*$(function () {
+    $(function () {
      $("#deletePeople").click(function () {
      if ($(".rmparam:checked").length < 1) {
      alert("I'm afraid you should select at least one person.")
@@ -250,7 +252,7 @@
      $("#deleteForm").submit()
      }
      })
-     })*/
+     })
 </script>
 
 </body>

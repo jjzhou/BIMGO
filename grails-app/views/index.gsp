@@ -28,7 +28,7 @@
     </div>
 
     <div class="modal-body">
-        <g:form controller="peopleManagement" action="index" id="loginForm" name="loginForm">
+        <g:form controller="peopleManagement" method="post" action="index" name="loginForm">
             <div class="form-horizontal">
                 <fieldset>
                     <div class="control-group">

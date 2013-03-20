@@ -1,5 +1,6 @@
 package bimgo
 
+import com.mongodb.util.JSON
 import eis.bas.UploadFile
 import excelimport.ExpectedPropertyType
 import org.apache.poi.xssf.usermodel.XSSFWorkbook
@@ -13,16 +14,11 @@ class PeopleManagementController {
     def excelService
 
     def index() {
-
-        /*List<People> peopleList = People.findAll()?.toList()
-
-        if (!peopleList || peopleList.size() == 0) {
-            peopleList = new ArrayList()
-        }*/
-
         //TODO Prepare a JSON for data visualization
+        def db = mongo.getDB(grailsApplication.config.grails.mongo.databaseName)
+        def peopleTree = db.tree.findOne(key: 'People')
 
-        render view: "index"
+        render view: "index", model: [treeJson : com.mongodb.util.JSON.serialize(peopleTree?:[]), treeId: peopleTree?.get("_id")]
     }
 
     def truth() {
@@ -142,5 +138,22 @@ class PeopleManagementController {
 
         flash.message = "Congratulations! Successfully uploaded new colleagues!"
         redirect(action: index())
+    }
+
+    def edit() {
+        def db = mongo.getDB(grailsApplication.config.grails.mongo.databaseName)
+        def peopleTree = db.tree.findOne(key: 'People')
+        render view: "edit", model: [treeJson : com.mongodb.util.JSON.serialize(peopleTree), treeId: peopleTree["_id"]]
+    }
+
+    def save() {
+        def db = mongo.getDB(grailsApplication.config.grails.mongo.databaseName)
+
+        def treeId = params.treeId
+        def treeData = params.treeData
+
+        db.tree.update([_id: new ObjectId(treeId)], JSON.parse(treeData))
+
+        redirect action: "index"
     }
 }

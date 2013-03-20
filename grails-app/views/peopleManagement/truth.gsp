@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>People Management</title>
-    <r:require modules="bimgo-layout, bootstrap, jquery-ui-addon-file-upload, jit"/>
+    <r:require modules="bimgo-layout, bootstrap, jquery-ui-addon-file-upload"/>
     <r:layoutResources/>
 </head>
 
