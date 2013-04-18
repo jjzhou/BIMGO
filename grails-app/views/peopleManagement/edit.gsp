@@ -41,7 +41,7 @@
                                 class="divider">/</span></li>
                         <li><a href="javascript:void(0);" onclick="$.fn.zTree.getZTreeObj('tree').expandAll(false)">Collapse All</a> <span
                                 class="divider">/</span></li>
-                        <li><a href="javascript:void(0);" onclick="getTreeData()">Save</a></li>
+                        <li><a href="javascript:void(0);" onclick="saveTreeData()">Save</a></li>
                     </ul>
 
                     <div id="tree" class="ztree" style="height:auto; overflow:auto; margin-left:5px; margin-bottom: 10px;"></div>
@@ -88,11 +88,14 @@
 
 <r:layoutResources/>
 <script type="text/javascript">
+    var nodes = ${treeData};
+    var t = $("#tree");
+    var inCancelRename = false;
     var setting = {
         data:{
             key:{
-                name:"key",
-                title:"key",
+                name:"name",
+                title:"name",
                 children:"children"
             }
         },
@@ -150,6 +153,18 @@
         }
     };
 
+    function getNodeData(event, treeId, treeNode) {
+        /*if (treeNode.level == 3) {
+         $("#cityLevel").val(treeNode.data.cityLevel)
+         $("#cityLevelSet").show()
+         } else {
+         $("#cityLevel").val("")
+         $("#cityLevelSet").hide()
+         }*/
+        $("#employeeCode").val(treeNode.data.employeeCode)
+        $("#nameEn").val(treeNode.data.nameEn)
+    }
+
     function checkDuplicateNode(node, newName){
         if(node!=null){
             if(node.key==newName){
@@ -164,15 +179,9 @@
                 }
             }
         }
-
         return false;
     }
 
-    var nodes = ${treeJson};
-    var t = $("#tree");
-    var inCancelRename = false;
-
-    var newCount = 1;
     function addHoverDom(treeId, treeNode) {
         if (treeNode.level == 3) {//三级节点下面不允许添加节点
             return
@@ -185,27 +194,14 @@
         var btn = $("#addBtn_" + treeNode.tId);
         if (btn) btn.bind("click", function () {
             var zTree = $.fn.zTree.getZTreeObj("tree");
-            zTree.addNodes(treeNode, {key:"new name", data:[], children:[]});
+            zTree.addNodes(treeNode, {name:"new name", data:{employeeCode:"10000", nameEn:"New Name"}, children:[]});
             return false;
         });
-    }
-    ;
+    };
+
     function removeHoverDom(treeId, treeNode) {
         $("#addBtn_" + treeNode.tId).unbind().remove();
-    }
-    ;
-
-    function getNodeData(event, treeId, treeNode) {
-        /*if (treeNode.level == 3) {
-            $("#cityLevel").val(treeNode.data.cityLevel)
-            $("#cityLevelSet").show()
-        } else {
-            $("#cityLevel").val("")
-            $("#cityLevelSet").hide()
-        }*/
-        $("#employeeCode").val(treeNode.data.employeeCode)
-        $("#nameEn").val(treeNode.data.nameEn)
-    }
+    };
 
     function confirmRemoveNode(treeId, treeNode) {
         if (treeNode.level == 0) {
@@ -215,19 +211,18 @@
 
         if (treeNode.isParent) {
             alert("Delete the WHOLE solution team?")
-            return confirm("Double confirm! Won't regret?")
+            return confirm("Double confirm! You are deleting the WHOLE solution team, won't regret?")
         }else {
             return confirm("Watch out! You are kicking out somebody! Sure?")
         }
     }
 
     $(function () {
-
         /*$("#cityLevel").change(function () {
-            var zTree = $.fn.zTree.getZTreeObj("tree");
-            var node = zTree.getSelectedNodes();
-            node[0].cityLevel = $(this).val()
-        })*/
+         var zTree = $.fn.zTree.getZTreeObj("tree");
+         var node = zTree.getSelectedNodes();
+         node[0].cityLevel = $(this).val()
+         })*/
         $("#employeeCode").blur(function () {
             var zTree = $.fn.zTree.getZTreeObj("tree");
             var node = zTree.getSelectedNodes();
@@ -241,14 +236,14 @@
 
         t = $.fn.zTree.init(t, setting, nodes);
         var zTree = $.fn.zTree.getZTreeObj("tree");
-        zTree.expandAll(false);
-
+        zTree.expandAll(true);
     });
 
-    function getTreeData() {
+    function saveTreeData() {
         var zTree = $.fn.zTree.getZTreeObj("tree");
         var treeData = zTree.getNodes();
-        $("#treeData").val(JSON.stringify(treeData[0], ['key', 'data', 'children']));
+        $("#treeData").val(JSON.stringify(treeData[0], ['name', 'data', 'children']));
+        /*$("#treeData").val(JSON.stringify(treeData[0], ['name', {'data': ['employeeCode', 'nameEn']}, 'children']));*/
         $("#treeForm").submit()
     }
 </script>

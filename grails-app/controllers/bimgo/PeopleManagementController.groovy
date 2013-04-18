@@ -14,11 +14,17 @@ class PeopleManagementController {
     def excelService
 
     def index() {
-        //TODO Prepare a JSON for data visualization
         def db = mongo.getDB(grailsApplication.config.grails.mongo.databaseName)
-        def peopleTree = db.tree.findOne(key: 'People')
+        def peopleTree = db.tree.findOne(name: 'People')
 
-        render view: "index", model: [treeJson : com.mongodb.util.JSON.serialize(peopleTree?:[]), treeId: peopleTree?.get("_id")]
+        if (!peopleTree) {
+            peopleTree = new Tree(name: 'People', data: new People(userName: 'root'), children: [])
+            peopleTree.save(flush: true, validate: false)
+        }
+
+        peopleTree = db.tree.findOne(name: 'People')
+
+        render view: "index", model: [treeData : com.mongodb.util.JSON.serialize(peopleTree), treeId: peopleTree["_id"]]
     }
 
     def truth() {
@@ -142,8 +148,8 @@ class PeopleManagementController {
 
     def edit() {
         def db = mongo.getDB(grailsApplication.config.grails.mongo.databaseName)
-        def peopleTree = db.tree.findOne(key: 'People')
-        render view: "edit", model: [treeJson : com.mongodb.util.JSON.serialize(peopleTree), treeId: peopleTree["_id"]]
+        def peopleTree = db.tree.findOne(name: 'People')
+        render view: "edit", model: [treeData : com.mongodb.util.JSON.serialize(peopleTree), treeId: peopleTree["_id"]]
     }
 
     def save() {

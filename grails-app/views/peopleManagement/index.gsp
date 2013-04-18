@@ -73,8 +73,8 @@
                             <input type="radio" id="r-sd" name="layout" value="bottom"/>
                         </td>
                         <td style="width: 555px; vertical-align: top; text-align: right;">
-                            <g:link action="truth" class="btn btn-basic pull-right">Show Me The TRUTH</g:link>
-                            <g:link action="edit" class="btn btn-primary pull-right" style="margin-right: 10px;">Edit</g:link>
+                            <g:link action="truth" class="btn btn-warning pull-right">Show Me The TRUTH</g:link>
+                            <g:link action="edit" class="btn btn-primary pull-right" style="margin-right: 10px;"><i class="icon-edit icon-white"></i>&nbsp;Edit&nbsp;</g:link>
                         </td>
                     </tr>
                 </table>

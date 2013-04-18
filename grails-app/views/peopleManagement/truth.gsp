@@ -30,13 +30,14 @@
         </g:if>
 
         <div class="row" style="margin-left: 0px; margin-top: 5px;">
-            <div class="span4 form-inline" style="margin-left: 0px;">
+            <div class="span6 form-inline" style="margin-left: 0px;">
+                <g:link action="index" class="btn btn-warning"><i class="icon-backward icon-white"></i> Back to Modern</g:link>
                 <a id="deletePeople" href="javascript:void(0);" class="btn btn-danger"><i class="icon-minus icon-white"></i> Delete Selected</a>
-                <button id="addPeople" class="btn btn-success" onclick="addPeople();"><i
+                <button id="addPeople" class="btn btn-primary" onclick="addPeople();"><i
                         class="icon-plus icon-white"></i> Add People</button>
             </div>
 
-            <div class="span7" style="margin-left: -50px;"><g:fileUpload maxSize="10000000" autoUpload="false"
+            <div class="span5" style="margin-left: -63px;"><g:fileUpload maxSize="10000000" autoUpload="false"
                                                                          completed="processUploadFile"
                                                                          fileType="xlsx"/></div>
         </div>

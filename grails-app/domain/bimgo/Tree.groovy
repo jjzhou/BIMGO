@@ -13,7 +13,8 @@ class Tree {
     }
 
     ObjectId id
-    String key
+
+    String name
     People data
     Set<Tree> children
 
